@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Loading correctly 1`] = `
+<div
+  className="loading"
+>
+  <h4>
+    rooms is loading
+  </h4>
+  <img
+    alt=""
+    src="loading-gear.gif"
+  />
+</div>
+`;
+
+exports[`renders categoriesList correctly 1`] = `
+<div
+  className="categories"
+>
+  <div
+    className="categories-title"
+  >
+    <span>
+      Categories
+    </span>
+  </div>
+  <div
+    className="categories-center"
+  >
+    <div
+      className="thumbnails-container"
+    >
+      <img
+        alt="single tag"
+        src="cat_kebab.jpg"
+      />
+      <p>
+        kebab
+      </p>
+    </div>
+    <div
+      className="thumbnails-container"
+    >
+      <img
+        alt="single tag"
+        src="cat_ramen.jpg"
+      />
+      <p>
+        ramen
+      </p>
+    </div>
+    <div
+      className="thumbnails-container"
+    >
+      <img
+        alt="single tag"
+        src="cat_steak.jpg"
+      />
+      <p>
+        steak
+      </p>
+    </div>
+    <div
+      className="thumbnails-container"
+    >
+      <img
+        alt="single tag"
+        src="cat_street_food.jpg"
+      />
+      <p>
+        street Food
+      </p>
+    </div>
+    <div
+      className="thumbnails-container"
+    >
+      <img
+        alt="single tag"
+        src="cat_sushi.jpg"
+      />
+      <p>
+        sushi
+      </p>
+    </div>
+    <div
+      className="thumbnails-container"
+    >
+      <img
+        alt="single tag"
+        src="cat_chinese.jpg"
+      />
+      <p>
+        chinese
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders footer correctly 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "rgb(211, 210, 210)",
+    }
+  }
+>
+  <div
+    className="footer"
+  >
+    <div
+      className="footer-top"
+    >
+      <span>
+        <img
+          alt="Wolt"
+          src="logo.svg"
+        />
+      </span>
+    </div>
+    <div
+      className="footer-middle"
+    >
+      <div
+        className="footer-logo"
+      >
+        <h3>
+           Download the app
+        </h3>
+        <span>
+          <img
+            alt="apple store"
+            src="appstore.svg"
+          />
+        </span>
+        <span>
+          <img
+            alt="google play"
+            src="googleplay.svg"
+          />
+        </span>
+      </div>
+      <div
+        className="footer-detail"
+      >
+        <h3>
+          Let's do this together
+        </h3>
+        <p>
+          For couriers
+        </p>
+        <p>
+          For restaurant
+        </p>
+        <p>
+          For companies
+        </p>
+        <p>
+          Jobs
+        </p>
+      </div>
+      <div
+        className="footer-detail"
+      >
+        <h3>
+          Wolt links
+        </h3>
+        <p>
+          Contact
+        </p>
+        <p>
+          Media
+        </p>
+        <p>
+          Support
+        </p>
+        <p>
+          Blog
+        </p>
+      </div>
+    </div>
+    <div
+      className="footer-bottom"
+    >
+      <div
+        className="footer-detail"
+      >
+        <p>
+          © Wolt 2014–2020
+        </p>
+      </div>
+      <div
+        className="footer-detail"
+      >
+        <p>
+          Terms and conditions
+        </p>
+      </div>
+      <div
+        className="footer-detail"
+      >
+        <p>
+          Terms and conditions
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders navbar correctly 1`] = `
+<div
+  className="container-nav"
+>
+  <div
+    className="nav-items"
+  >
+    <div
+      className="nav-left"
+    >
+      <a
+        href="/discovery"
+        onClick={[Function]}
+      >
+        <img
+          alt="Wolt"
+          src="logo.svg"
+        />
+      </a>
+    </div>
+    <div
+      className="nav-middle"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="Search"
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="nav-right"
+    >
+      <div
+        className="nav-right-items"
+      >
+        <input
+          id="sign-up"
+          type="button"
+          value="Sign Up"
+        />
+        <input
+          id="log-in"
+          type="button"
+          value="Log In"
+        />
+        <select
+          id="languages"
+        >
+          <option
+            value="English"
+          >
+            English
+          </option>
+          <option
+            value="Finnish"
+          >
+            Finnish
+          </option>
+          <option
+            value="Chinese"
+          >
+            Chinese
+          </option>
+          <option
+            value="German"
+          >
+            German
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="nav-more"
+    >
+      <i
+        aria-hidden="true"
+        className="fa fa-bars"
+        onClick={[Function]}
+      >
+        <div
+          className="options"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div
+            className="option-item"
+          >
+            <span>
+              Profile
+            </span>
+          </div>
+          <div
+            className="option-item"
+          >
+            <span>
+              Languages
+            </span>
+          </div>
+          <div
+            className="option-item-last"
+          >
+            <span>
+              Support
+            </span>
+          </div>
+        </div>
+      </i>
+    </div>
+  </div>
+</div>
+`;

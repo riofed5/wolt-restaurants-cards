@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="defaultHero"
+>
+  <div
+    className="home-container"
+  >
+    <div
+      className="home-title"
+    >
+      <h1>
+        Looking for something healthy ?
+      </h1>
+    </div>
+    <h3>
+      Delivery address
+    </h3>
+    <div
+      className="home-search"
+    >
+      <div
+        className="home-search-input"
+      >
+        <span>
+          <i
+            aria-hidden="true"
+            className="fa fa-map-marker"
+          />
+        </span>
+        <input
+          placeholder="1 Example Street"
+          required={true}
+          type="text"
+        />
+      </div>
+      <button>
+        <span>
+          Search
+        </span>
+      </button>
+    </div>
+    <div>
+      <a
+        className="sc-AykKC gATZTh"
+        href="/discovery"
+        onClick={[Function]}
+      >
+        or view popular restaurants in Helsinki
+      </a>
+    </div>
+  </div>
+</div>
+`;
