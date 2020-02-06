@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import chinese from "../images/thumbnails/cat_chinese.jpg";
 import kebab from "../images/thumbnails/cat_kebab.jpg";
 import ramen from "../images/thumbnails/cat_ramen.jpg";

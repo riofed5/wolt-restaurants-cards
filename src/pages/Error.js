@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Error = () => {
-    return (
-        <div>
-            Page not found
-        </div>
-    )
-}
+  return (
+    <div className="error">
+      <h3> Page not found</h3>
+    </div>
+  );
+};
 
-export default Error
+export default Error;

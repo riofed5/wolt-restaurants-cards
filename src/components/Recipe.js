@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 const Recipe = ({recipe={}, layout=null }) => {
   let { image, name, tags, delivery_price, description } = recipe;
@@ -46,6 +45,11 @@ const Recipe = ({recipe={}, layout=null }) => {
     </div>
   );
 };
+
+Recipe.propTypes = {
+  recipe: PropTypes.object,
+  layout: PropTypes.string
+}
 
 export default Recipe;
 

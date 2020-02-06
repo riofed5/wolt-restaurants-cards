@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Navbar from "../components/Navbar";
 import Tabs from "../components/Tabs";
 import RecipeContainer from "../components/RecipeContainer";
 

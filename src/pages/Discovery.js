@@ -1,5 +1,4 @@
 import React from "react";
-import RecipeContainer from "../components/RecipeContainer";
 import Tabs from "../components/Tabs";
 import CategoriesList from "../components/CategoriesList";
 

@@ -18,7 +18,7 @@ const RecipeFilter = () => {
         </div>
         <div className="filter-list">
           <select id="filter-select" onChange={handleSelectFilter}>
-            <option selected="false" key={0}>
+            <option value="sort by" key={0}>
               SORT BY
             </option>
             {selections.map((item, index) => {

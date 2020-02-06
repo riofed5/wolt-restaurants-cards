@@ -2,6 +2,7 @@ import React from "react";
 import Recipe from "./Recipe";
 import { useContext } from "react";
 import { RecipeContext } from "../context";
+import PropTypes from 'prop-types';
 
 const RecipeList = ({ recipes }) => {
   const deliveryRecipes = recipes.filter(recipe => recipe.online);
@@ -12,7 +13,7 @@ const RecipeList = ({ recipes }) => {
   if (deliveryRecipes.length === 0) {
     return (
       <div className="empty-search">
-        <h3>unfortunately no recipe matched your search</h3>
+        <h3>unfortunately no cards available</h3>
       </div>
     );
   }
@@ -31,5 +32,9 @@ const RecipeList = ({ recipes }) => {
     </div>
   );
 };
+
+RecipeList.propTypes={
+  recipes: PropTypes.array,
+}
 
 export default RecipeList;
