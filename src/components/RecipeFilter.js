@@ -5,7 +5,7 @@ import { RecipeContext } from "../context";
 const RecipeFilter = () => {
   const context = useContext(RecipeContext);
 
-  const selections = ["A to Z", "Z to A"];
+  const selections = ["A TO Z", "Z TO A"];
 
   const { handleSelectFilter, handleLayoutChange, location } = context;
 
@@ -19,12 +19,12 @@ const RecipeFilter = () => {
         <div className="filter-list">
           <select id="filter-select" onChange={handleSelectFilter}>
             <option selected="false" key={0}>
-              Sort By
+              SORT BY
             </option>
             {selections.map((item, index) => {
               return (
                 <option value={item} key={index + 1}>
-                  Name {item}
+                  NAME MODEL: {item}
                 </option>
               );
             })}

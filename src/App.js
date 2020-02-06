@@ -9,6 +9,7 @@ import Discovery from "./pages/Discovery";
 import Footer from "./components/Footer";
 import Delivery from "./pages/Delivery";
 import SingleCategory from "./pages/SingleCategory";
+import Location from './components/Location';
 
 
 
@@ -25,6 +26,7 @@ class App extends Component {
         <Route component={Error} />
       </Switch>
       <Footer />
+      <Location />
     </>
   );
   }

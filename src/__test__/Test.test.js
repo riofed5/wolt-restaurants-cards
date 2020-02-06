@@ -3,62 +3,188 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Loading from "../components/Loading";
 
+import Home from "../pages/Home";
+
 import Tabs from "../components/Tabs";
 import RecipeContainer from "../components/RecipeContainer";
 import RecipeFilter from "../components/RecipeFilter";
 import RecipeList from "../components/RecipeList";
+import Recipe from "../components/Recipe";
 
-import renderer from "react-test-renderer";
 import React, { useContext } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { RecipeContext, RecipeProvider } from "../context";
 
 import Adapter from "enzyme-adapter-react-16";
-import { mount, configure } from "enzyme";
+import { mount, configure, shallow } from "enzyme";
+import toJson from "enzyme-to-json";
 
-/* Rendering test*/
+// 1.Setting configure and set data example
+configure({ adapter: new Adapter() });
 
-it("renders categoriesList correctly", () => {
-  const categoriesList = renderer.create(<CategoriesList />).toJSON();
+let recipesExample = [
+  {
+    blurhash: "UUKJMXv|x]oz0gtRM{V@AHRQwvxZXSs9s;o0",
+    city: "Helsinki",
+    currency: "EUR",
+    delivery_price: 390,
+    description: "Asenneburgeri",
+    image:
+      "https://prod-wolt-venue-images-cdn.wolt.com/5b348b31fe8992000bbec771/2be8c7738b220df2f9a0974da5c90d90",
+    location: [24.941325187683105, 60.169938852212965],
+    name: "Social Burgerjoint Citycenter",
+    online: true,
+    tags: ["hamburger", "fries"]
+  },
+  {
+    blurhash: "UXJHswsy-n%0~T%Ka%NLNFjFxvNe%MRjM|ax",
+    city: "Helsinki",
+    currency: "EUR",
+    delivery_price: 390,
+    description: "Modernia gourmet-kebabia ",
+    image:
+      "https://prod-wolt-venue-images-cdn.wolt.com/5abcf2d270aae6000deacff0/9c21840f97e01f5c293eae0993b4faa2",
+    location: [24.94184732393478, 60.16993168083865],
+    name: "D\u00f6ner Harju City",
+    online: true,
+    tags: ["kebab", "d\u00f6ner"]
+  }
+];
 
-  expect(categoriesList).toMatchSnapshot();
-});
+// 2.Unit test
 
-it("renders footer correctly", () => {
-  const footer = renderer.create(<Footer />).toJSON();
+// 2.1 For components without props passed
 
-  expect(footer).toMatchSnapshot();
-});
+describe("component without props passed", () => {
+  
+  //2.1.1 Home
+  
+  test("Home renders", () => {
+    const wrapper = shallow(
+      <Router>
+        <Home />
+      </Router>
+    );
+    
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 
-it("renders navbar correctly", () => {
-  const navbar = renderer
-    .create(
+  // 2.1.2 Navbar
+
+  test("Navbar renders", () => {
+    const wrapper = shallow(
       <Router>
         <Navbar />
       </Router>
-    )
-    .toJSON();
+    );
 
-  expect(navbar).toMatchSnapshot();
-});
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 
-it("renders Loading correctly", () => {
-  const loading = renderer.create(<Loading />).toJSON();
+  //2.1.3 Tabs
 
-  expect(loading).toMatchSnapshot();
-});
-/* End rendering test*/
+  test("Tabs renders", () => {
+    const wrapper = shallow(
+      <RecipeProvider>
+        <Tabs />
+      </RecipeProvider>
+    );
+    
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
 
-/*----------------------------------------------------------------------------*/
-
-/* Functionality test */
-
-//Test for handle Filter
-configure({ adapter: new Adapter() });
-describe("Sort items ", () => {
+  //2.1.4 Recipe Filter
   
+  test("RecipeFilter renders", () => {
+    const wrapper = shallow(
+      <RecipeProvider>
+        <RecipeFilter />
+      </RecipeProvider>    
+    );
+    
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });  
+
+  // 2.1.5 Loading
+  test("Loading renders", () => {
+    const wrapper = shallow(<Loading />);
+
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  
+  //2.1.6 Categories List
+  test("CategoriesList renders", () => {
+    const wrapper = shallow(<CategoriesList />);
+
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+  
+  //2.1.7 Footer
+  test("Footer renders", () => {
+    const wrapper = shallow(<Footer />);
+
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  
+});
+
+// 2.2 For components within props passed
+
+describe("Recipe component", () => {
+  test("renders", () => {
+    const wrapper = shallow(<Recipe recipe={recipesExample} layout="grid" />);
+
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  test("renders when nothing is passed", () => {
+    const wrapper = shallow(<Recipe />);
+
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  test("renders doesn't break out when nothing pass", () => {
+    const wrapper = shallow(<Recipe />);
+    expect(wrapper.find("img")).toHaveLength(1);
+  });
+});
+
+// 3.Intergration test
+
+describe("RecipeList component", () => {
+  test("renders", () => {
+    const wrapper = shallow(
+      <RecipeProvider>
+        <RecipeList recipe={recipesExample} />
+      </RecipeProvider>
+    );
+    expect(wrapper.exists()).toBe(true);
+  });
+
+  test("should render Recipe component", () => {
+    const wrapper = mount(
+      <RecipeProvider>
+        <RecipeList recipes={recipesExample} />
+      </RecipeProvider>
+    );
+    expect(
+      wrapper
+        .find("div")
+        .find("div")
+        .children(Recipe).length
+    ).toEqual(recipesExample.length);
+  });
+});
+
+// 4.Functionality test
+
+// 4.1 Test for handle Filter
+
+describe("Sort items ", () => {
   //sort name from A to Z
-  it("by name ascending", () => {
+  test("by name ascending", () => {
     const TestComponent = () => {
       const context = useContext(RecipeContext);
 
@@ -92,7 +218,7 @@ describe("Sort items ", () => {
 
   //sort name from Z to A
 
-  it("by name descending", () => {
+  test("by name descending", () => {
     const TestComponent = () => {
       const context = useContext(RecipeContext);
 

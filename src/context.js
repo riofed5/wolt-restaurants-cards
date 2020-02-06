@@ -26,16 +26,16 @@ class RecipeProvider extends Component {
   }
 
   handleLocation= ()=>{
-    console.log('location');
+    console.log('The process is continuing');
   }
 
   handleSelectFilter = e => {
     const value = e.target.value;
     let tempRecipes = [...this.state.recipes];
 
-    if (value === "A to Z") {
+    if (value === "A TO Z") {
       tempRecipes = tempRecipes.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (value === "Z to A") {
+    } else if (value === "Z TO A") {
       tempRecipes = tempRecipes.sort((a, b) => b.name.localeCompare(a.name));
     } else {
       tempRecipes= this.state.sortedRecipes;

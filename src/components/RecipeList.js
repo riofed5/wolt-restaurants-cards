@@ -9,7 +9,6 @@ const RecipeList = ({ recipes }) => {
   const context = useContext(RecipeContext);
 
   const { layout } = context;
-  console.log(layout);
   if (deliveryRecipes.length === 0) {
     return (
       <div className="empty-search">

@@ -2,17 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Recipe = ({ recipe, layout }) => {
+const Recipe = ({recipe={}, layout=null }) => {
   let { image, name, tags, delivery_price, description } = recipe;
-  tags = tags.toString();
+  if(tags){
+    tags = tags.toString();
+  }
 
   return (
     <div className={layout==="grid"?"recipe":"recipe-layout"}>
       <div className={layout==="grid"?"img-container":"img-container-layout"}>
         <img src={image} alt="single recipe" />
-        <Link to="/" className="btn-primary recipe-link">
+        <div className="btn-primary recipe-link">
           Details
-        </Link>
+        </div>
       </div>
       <div className={layout==="grid"?"recipe-container-info":"recipe-container-info-layout"}>
         <div className={layout==="grid"?"recipe-info":"recipe-info-layout"}>
