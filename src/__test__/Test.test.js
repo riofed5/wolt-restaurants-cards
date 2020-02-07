@@ -193,7 +193,7 @@ describe("Sort items ", () => {
       return (
         <>
           <select onChange={handleSelectFilter}>
-            <option value="A to Z" key={1}>
+            <option value="A TO Z" key={1}>
               Name Ascending
             </option>
           </select>
@@ -227,7 +227,7 @@ describe("Sort items ", () => {
       return (
         <>
           <select onChange={handleSelectFilter}>
-            <option value="Z to A" key={1}>
+            <option value="Z TO A" key={1}>
               Name Descending
             </option>
           </select>
