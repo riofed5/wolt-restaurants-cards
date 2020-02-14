@@ -9,7 +9,12 @@ class RecipeProvider extends Component {
     loading: true,
     sortedRecipes: items,
     layout: "grid",
-    location: "Helsinki"
+    location: sessionStorage.getItem("location")
+      ? JSON.parse(sessionStorage.getItem("location"))
+      : "Helsinki",
+    coords: sessionStorage.getItem("coords")
+      ? JSON.parse(sessionStorage.getItem("coords"))
+      : null
   };
 
   componentDidMount() {
@@ -25,9 +30,9 @@ class RecipeProvider extends Component {
     });
   }
 
-  handleLocation= ()=>{
-    console.log('The process is continuing');
-  }
+  handleLocation = (location, coords) => {
+    this.setState({ location, coords });
+  };
 
   handleSelectFilter = e => {
     const value = e.target.value;
@@ -38,7 +43,7 @@ class RecipeProvider extends Component {
     } else if (value === "Z TO A") {
       tempRecipes = tempRecipes.sort((a, b) => b.name.localeCompare(a.name));
     } else {
-      tempRecipes= this.state.sortedRecipes;
+      tempRecipes = this.state.sortedRecipes;
     }
     this.setState({
       sortedRecipes: tempRecipes
@@ -57,7 +62,8 @@ class RecipeProvider extends Component {
         value={{
           ...this.state,
           handleSelectFilter: this.handleSelectFilter,
-          handleLayoutChange: this.handleLayoutChange
+          handleLayoutChange: this.handleLayoutChange,
+          handleLocation: this.handleLocation
         }}
       >
         {this.props.children}

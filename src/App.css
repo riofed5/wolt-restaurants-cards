@@ -292,8 +292,21 @@ input:focus {
 .home-search-input span i {
   margin: 10px;
 }
+.input-place{
+  width: 100%;
+  padding: 5% 0 ;
+}
+
+.place-results{
+  position: relative;
+  z-index: 14;
+  height: auto;
+  margin-top: 20px;
+
+}
 
 .home-search-input input {
+  width: 100%;
   background: none;
   border: none;
   font-size: 15px;
