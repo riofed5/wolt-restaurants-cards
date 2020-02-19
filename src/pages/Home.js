@@ -4,45 +4,9 @@ import { Link } from "react-router-dom";
 import background from "../images/background.jpg";
 import LocationInput from "../components/LocationInput";
 
-const API_key = "AIzaSyC0SzNuUz8yjXDg3M_YZ6-wgbaoGhRCsFM";
+console.log(process.env.REACT_APP_WEATHER_API_KEY)
 
 const Home = (props) => {
-  let place = undefined;
-  const handdleGetUserLoaction = () => {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        place = {
-          lat: position.coords.latitude,
-          long: position.coords.longitude
-        };
-        console.log(place);
-        getUserAddressBy(place.lat, place.long);
-      },
-      error => {
-        console.log("The Locator was denied. :(");
-      }
-    );
-  };
-
-  const getUserAddressBy = function(lat, long) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        const address = JSON.parse(this.responseText);
-        console.log(address.results[0]);
-      }
-    };
-    xhttp.open(
-      "GET",
-      "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-        lat +
-        "," +
-        long +
-        "&key=AIzaSyC0SzNuUz8yjXDg3M_YZ6-wgbaoGhRCsFM",
-      true
-    );
-    xhttp.send();
-  };
 
   return (
     <div className="home-container">
@@ -72,13 +36,13 @@ const Home = (props) => {
         className="home-container-right"
         src={background}
         alt="a-part-of-background"
-      />
+        />
     </div>
   );
 };
 
 const LinkStyled = styled(Link)`
-  padding-top: 10px;
+padding-top: 10px;
   font-size: 1.3rem;
   font-weight: 500;
   text-align: center;
@@ -90,3 +54,41 @@ const LinkStyled = styled(Link)`
 `;
 
 export default Home;
+
+/*
+let place = undefined;
+const handdleGetUserLoaction = () => {
+  navigator.geolocation.getCurrentPosition(
+      position => {
+        place = {
+          lat: position.coords.latitude,
+          long: position.coords.longitude
+        };
+        console.log(place);
+        getUserAddressBy(place.lat, place.long);
+      },
+      error => {
+        console.log("The Locator was denied. :(");
+      }
+      );
+    };
+
+  const getUserAddressBy = function(lat, long) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        const address = JSON.parse(this.responseText);
+        console.log(address.results[0]);
+      }
+    };
+    xhttp.open(
+      "GET",
+      "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+        lat +
+        "," +
+        long +
+        "&key=key_here",
+      true
+    );
+    xhttp.send();
+  };*/
