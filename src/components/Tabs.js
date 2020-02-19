@@ -8,6 +8,7 @@ const Tabs = () => {
 
   const { handleSelectTab, location } = context;
 
+  const {address, city}= location
   
   return (
     <div className="container-tabs">
@@ -17,7 +18,7 @@ const Tabs = () => {
             <i className="fa fa-map-marker" aria-hidden="true" />
           </span>
           <p>
-            {location !=="Helsinki"? `${location.address}, ${location.city}`: `${location}` }
+            {address && address + "," } { city}
           </p>
         </div>
         <div className="tabs-right">

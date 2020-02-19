@@ -11,7 +11,7 @@ class RecipeProvider extends Component {
     layout: "grid",
     location: sessionStorage.getItem("location")
       ? JSON.parse(sessionStorage.getItem("location"))
-      : "Helsinki",
+      : {city: "Helsinki"},
     coords: sessionStorage.getItem("coords")
       ? JSON.parse(sessionStorage.getItem("coords"))
       : null
@@ -21,7 +21,7 @@ class RecipeProvider extends Component {
     let tempRecipes = [...this.state.recipes];
 
     tempRecipes = tempRecipes.filter(
-      recipe => recipe.city === this.state.location
+      recipe => recipe.city === this.state.location.city
     );
 
     this.setState({
@@ -78,7 +78,7 @@ export const withRecipeConsumer = Component => {
   const ConsumerWrapper = props => {
     return (
       <RecipeConsumer>
-        {value => <Component {...props} context={value} />}
+        {value => <Component props={props} context={value} />}
       </RecipeConsumer>
     );
   };

@@ -5,6 +5,8 @@ import ramen from "../images/thumbnails/cat_ramen.jpg";
 import steak from "../images/thumbnails/cat_steak.jpg";
 import streetfood from "../images/thumbnails/cat_street_food.jpg";
 import sushi from "../images/thumbnails/cat_sushi.jpg";
+import { Link } from "react-router-dom";
+import styled from 'styled-components';
 
 const CategoriesList = () => {
   return (
@@ -15,31 +17,54 @@ const CategoriesList = () => {
       <div className="categories-center">
         <div className="thumbnails-container">
           <img src={kebab} alt="single tag" />
-          <p>kebab</p>
+          <LinkStyled to="/category/kebab">
+            <p>kebab</p>
+          </LinkStyled>
         </div>
         <div className="thumbnails-container">
           <img src={ramen} alt="single tag" />
-          <p>ramen</p>
+          <LinkStyled to="/category/ramen">
+            <p>ramen</p>
+          </LinkStyled>
         </div>
         <div className="thumbnails-container">
           <img src={steak} alt="single tag" />
-          <p>steak</p>
+          <LinkStyled to="/category/steak">
+            <p>steak</p>
+          </LinkStyled>
         </div>
         <div className="thumbnails-container">
           <img src={streetfood} alt="single tag" />
-          <p>street Food</p>
+          <LinkStyled to="/category/streetfood">
+            <p>Street Food</p>
+          </LinkStyled>
         </div>
         <div className="thumbnails-container">
           <img src={sushi} alt="single tag" />
-          <p>sushi</p>
+          <LinkStyled to="/category/sushi">
+            <p>sushi</p>
+          </LinkStyled>
         </div>
         <div className="thumbnails-container">
           <img src={chinese} alt="single tag" />
-          <p>chinese</p>
+          <LinkStyled to="/category/chinese">
+            <p>chinese</p>
+          </LinkStyled>
         </div>
       </div>
     </div>
   );
 };
+
+const LinkStyled = styled(Link)`
+  text-decoration: none;
+  padding-top: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  width: fit-content;
+  height: 20px;
+  color: grey;
+`;
 
 export default CategoriesList;

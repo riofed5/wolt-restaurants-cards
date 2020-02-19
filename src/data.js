@@ -42,7 +42,7 @@ export default [
     blurhash: "ULL;EN%4?c-Oys?wxuTJ?ujERQMxw[M{aeR4",
     city: "Helsinki",
     currency: "EUR",
-    delivery_price: 390,
+    delivery_price: 490,
     description: "Viihtyis\u00e4 kiinalainen ravintola",
     image:
       "https://prod-wolt-venue-images-cdn.wolt.com/5cfa497902b535ee1c620fca/2c451d88fe96dc04d228dc4cd3dd23a5",

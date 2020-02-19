@@ -9,12 +9,13 @@ const RecipeFilter = () => {
 
   const { handleSelectFilter, handleLayoutChange, location } = context;
 
+  const {city}= location;
   return (
     <div className="container-filter">
       <div className="filter">
         <div className="filter-delivery-to">
           <span>Delivery to me</span>
-          <span> in {location}</span>
+          <span> in {city}</span>
         </div>
         <div className="filter-list">
           <select id="filter-select" onChange={handleSelectFilter}>

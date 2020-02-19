@@ -2,14 +2,23 @@ import React from "react";
 import Recipe from "./Recipe";
 import { useContext } from "react";
 import { RecipeContext } from "../context";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-const RecipeList = ({ recipes }) => {
-  const deliveryRecipes = recipes.filter(recipe => recipe.online);
+const RecipeList = ({ recipes, slug }) => {
+  let deliveryRecipes;
+
+  deliveryRecipes = recipes.filter(recipe => recipe.online);
+
+  if (slug) {
+    deliveryRecipes = deliveryRecipes.filter(recipe =>
+      recipe.tags.includes(slug)
+    );
+  }
 
   const context = useContext(RecipeContext);
 
   const { layout } = context;
+
   if (deliveryRecipes.length === 0) {
     return (
       <div className="empty-search">
@@ -33,8 +42,8 @@ const RecipeList = ({ recipes }) => {
   );
 };
 
-RecipeList.propTypes={
-  recipes: PropTypes.array,
-}
+RecipeList.propTypes = {
+  recipes: PropTypes.array
+};
 
 export default RecipeList;

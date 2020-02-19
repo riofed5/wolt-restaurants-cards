@@ -8,6 +8,7 @@ import { RecipeContext } from "../context";
 const LocationInput = () => {
   const context= React.useContext(RecipeContext);
 
+  const {handleLocation}= context;
 
   const [address, setAddress] = React.useState("");
   
@@ -17,11 +18,9 @@ const LocationInput = () => {
     const latLng = await getLatLng(results[0]);
     setAddress(value);
     const location= {address: results[0].address_components[0].long_name, city:results[0].address_components[1].long_name };
-    
-    console.log( location,latLng);
+    handleLocation(location, latLng);
     sessionStorage.setItem("coords", JSON.stringify(latLng));
     sessionStorage.setItem("location",JSON.stringify(location));
-    
   };
 
   return (
