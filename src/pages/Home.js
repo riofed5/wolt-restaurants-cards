@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import background from "../images/background.jpg";
 import LocationInput from "../components/LocationInput";
 
-console.log(process.env.REACT_APP_WEATHER_API_KEY)
-
 const Home = (props) => {
 
   return (
@@ -56,6 +54,8 @@ padding-top: 10px;
 export default Home;
 
 /*
+{* Get your peronal location*}
+
 let place = undefined;
 const handdleGetUserLoaction = () => {
   navigator.geolocation.getCurrentPosition(
@@ -87,7 +87,7 @@ const handdleGetUserLoaction = () => {
         lat +
         "," +
         long +
-        "&key=key_here",
+        "&key={enter_your_personal_key_here}",
       true
     );
     xhttp.send();
